@@ -7,7 +7,7 @@ import { BookappappointmentComponent } from './root/components/bookappappointmen
 
 const routes: Routes = [{ path: '', component: LoginComponent, pathMatch: 'full' },
 { path: 'usersearch', component: UsersearchComponent },
-{ path: 'bookslot', component: BookappappointmentComponent },
+{ path: 'bookslot/:id', component: BookappappointmentComponent },
 { path: '**', component: LoginComponent },
 
 ];
