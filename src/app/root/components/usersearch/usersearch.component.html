@@ -51,29 +51,7 @@
     <div class="row">
         <div class="col-md-12">
             <ul class="list-group">
-                <li class="list-group-item active doctordet">
-                    <div class="row">
-                        <div class="col-md-2">
-                            <span>doctorname</span>
 
-                        </div>
-                        <div class="col-md-3">
-                            <span>doctordetails</span>
-
-                        </div>
-                        <div class="col-md-3">
-                            <span>tet</span>
-
-                        </div>
-                        <div class="col-md-2">
-                            <span>asc</span>
-
-                        </div>
-                        <div class="col-md-2">
-
-                        </div>
-                    </div>
-                </li>
 
                 <li class="list-group-item" *ngFor="let details of doctordetails">
                     <div class="row">
@@ -160,8 +138,7 @@
                             <tbody>
                                 <tr *ngFor="let bookslot of bookslotdet">
 
-                                    <td><input type="radio" formControlName="slot" />
-                                    </td>
+
                                     <td>{{bookslot.slots}}</td>
 
 
