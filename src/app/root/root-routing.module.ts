@@ -5,7 +5,7 @@ import { BookappappointmentComponent } from './components/bookappappointment/boo
 
 const routes: Routes = [
   { path: 'usersearch', component: UsersearchComponent },
-  { path: 'bookslot', component: BookappappointmentComponent },
+  { path: 'bookslot/:id', component: BookappappointmentComponent },
 
 ];
 

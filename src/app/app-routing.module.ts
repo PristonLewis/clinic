@@ -7,7 +7,6 @@ import { DoctorsViewComponent } from './root/components/doctors-view/doctors-vie
 
 const routes: Routes = [{ path: '', component: LoginComponent, pathMatch: 'full' },
 { path: 'usersearch', component: UsersearchComponent },
-{ path: 'bookslot', component: BookappappointmentComponent },
 { path: 'doctorsview', component: DoctorsViewComponent },
 { path: '**', component: LoginComponent },
 

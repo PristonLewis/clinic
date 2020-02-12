@@ -51,29 +51,7 @@
     <div class="row">
         <div class="col-md-12">
             <ul class="list-group">
-                <li class="list-group-item active doctordet">
-                    <div class="row">
-                        <div class="col-md-2">
-                            <span>doctorname</span>
 
-                        </div>
-                        <div class="col-md-3">
-                            <span>doctordetails</span>
-
-                        </div>
-                        <div class="col-md-3">
-                            <span>tet</span>
-
-                        </div>
-                        <div class="col-md-2">
-                            <span>asc</span>
-
-                        </div>
-                        <div class="col-md-2">
-
-                        </div>
-                    </div>
-                </li>
 
                 <li class="list-group-item" *ngFor="let details of doctordetails">
                     <div class="row">
@@ -108,4 +86,76 @@
         </div>
     </div>
 
+</div>
+
+<div class="modal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    >
+    <div class="modal-dialog modaldata col-md-12 col-xl-12" role="document">
+        <div class="modal-content ">
+            <form [formGroup]="bookform" (ngSubmit)="onSubmitbookdet()">
+                <div class=" form-row">
+
+
+                    <div class="form-group col-md-6">
+                        <label for="inputFrom">firstName</label>
+                        <input type="text" class="form-control" formControlName="firstName" required>
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="inputFrom">lastName</label>
+                        <input type="text" class="form-control" formControlName="lastName" required>
+                    </div>
+
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputTo">Mobile Number</label>
+                        <input class="form-control" formControlName="mobile" required>
+
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="inputTo">email</label>
+                        <input type="email" class="form-control" formControlName="email" required>
+                    </div>
+                </div>
+
+
+                <div class="form-row">
+
+                    <div class="form-group col-md-6">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+
+
+                                    <th>slots</th>
+
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let bookslot of bookslotdet">
+
+
+                                    <td>{{bookslot.slots}}</td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <button class="btn btn-outline-primary btn-block text-uppercase">Book</button>
+
+            </form>
+
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+    </div>
 </div>
