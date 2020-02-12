@@ -1,128 +1,64 @@
 <div class="container mainDiv p-4">
     <div class="jumbotron jumbotron-fluid doctordet">
         <div class="container">
-            <h1>Book Slot</h1>
+            <h1>Book your slot here</h1>
 
         </div>
     </div>
-    <form [formGroup]="searchform" (ngSubmit)="onSubmit()">
+    <form [formGroup]="bookform" (ngSubmit)="onSubmit()">
         <div class=" form-row">
             <div class="form-group col-md-6">
-                <label for="inputFrom">Doctor Name</label>
-                <select id="inputFrom" formControlName="DoctorName" class="form-control">
-                    <option>Select</option>
-                    <option>Anu </option>
+                <label for="inputTo">Mobile Number</label>
+                <input class="form-control" formControlName="mobile" required>
 
-                </select>
             </div>
+
             <div class="form-group col-md-6">
-                <label for="inputTo">Category</label>
-                <select id="inputTo" formControlName="Category" class="form-control">
-                    <option>Select</option>
-                    <option>Anu </option>
-                    <!--<option *ngFor="let location of locations">
-                    {{location.locaionName}} - {{location.locaionCode}}
-                </option>-->
-                </select>
+                <label for="inputFrom">username</label>
+                <input type="text" class="form-control" formControlName="username" required>
             </div>
 
         </div>
 
         <div class="form-row">
-            <div class="form-group col-md-6">
-                <label for="inputFrom">Specailist</label>
-                <select id="inputFrom" formControlName="Specailist" class="form-control">
-                    <option>Select</option>
-                    <option>Anu </option>
-                    <!-- <option *ngFor="let location of locations">
-                        {{location.locaionName }} - {{location.locaionCode}}
-                    </option>-->
-                </select>
-            </div>
-            <div class="form-group col-md-6">
-                <label for="inputTo">Location</label>
-                <select id="inputTo" formControlName="Location" class="form-control">
-                    <option>Select</option>
-                    <option>Anu </option>
-                    <!-- <option *ngFor="let location of locations">
-                        {{location.locaionName}} - {{location.locaionCode}}
-                    </option>-->
-                </select>
-            </div>
 
+            <div class="form-group col-md-6">
+                <label for="inputTo">email</label>
+                <input type="email" class="form-control" formControlName="email" required>
+            </div>
         </div>
-
 
 
         <div class="form-row">
 
-            <div class="form-label-group col-md-3">
-                <label for="inputEmail">Date</label>
-                <input type="date" formControlName="date" class="form-control">
+            <div class="form-group col-md-6">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
 
+                            <th>slotdate</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let bookslot of booking" >
+                            <td (click)="setSlot(history.slotdate)">{{history.slotdate}}</td>
+
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-
-
-
         </div>
 
-        <br>
-
-        <button class="btn btn-outline-primary btn-block text-uppercase">Search</button>
+        <button class="btn btn-outline-primary btn-block text-uppercase">Book slot</button>
 
     </form>
     <br>
     <div class="row">
         <div class="col-md-12">
-            <ul class="list-group">
-                <li class="list-group-item active doctordet">
-                    <div class="row">
-                        <div class="col-md-2">
-                            <span>doctorname</span>
 
-                        </div>
-                        <div class="col-md-3">
-                            <span>doctordetails</span>
 
-                        </div>
-                        <div class="col-md-3">
-                            <span>tet</span>
 
-                        </div>
-                        <div class="col-md-2">
-                            <span>asc</span>
-
-                        </div>
-                        <div class="col-md-2">
-
-                        </div>
-                    </div>
-                </li>
-
-                <li class="list-group-item">
-                    <div class="row">
-
-                        <div class="col-md-3">
-                            <h3>mmmmm</h3>
-                            <p>ser</p>
-                        </div>
-
-                        <div class="col-md-3">
-                            <h3>ser</h3>
-                            <p>ser</p>
-                        </div>
-                        <div class="col-md-3">
-                            <h3 style="color:green">sss</h3>
-                            <p>Price</p>
-                        </div>
-                        <div class="col-md-1">
-                            <button type="submit" class="btn btn-primary">Book</button>
-                        </div>
-                    </div>
-
-                </li>
-
-            </ul>
         </div>
     </div>
 
