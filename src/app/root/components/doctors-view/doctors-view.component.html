@@ -1,28 +1,48 @@
-  <div class="container">
-    <div class="row">
-      <div class="col">
+  <div class="container" *ngIf="doctorDetail">
+    <div class="row justify-content-md-center">
+      <div class="col-md-6">
         <div class="card" style="width:400px">
-          <img class="card-img-top" src="img_avatar1.png" alt="Card image" style="width:100%">
+          <!-- <img class="card-img-top" src="img_avatar1.png" alt="Card image" style="width:100%"> -->
           <div class="card-body">
-            <h4 class="card-title">John Doe</h4>
-            <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
+            <h4 class="card-title">{{doctorDetail.doctorName}}</h4>
+            <h5 class="card-text">Speciality : {{doctorDetail.doctors.categery}}</h5>
+            <h6 class="card-text">Location : {{doctorDetail.doctors.location}}</h6>
             <div class="addSlot">
-                <input class="input-form" placeholder="timeslot">
-                <input class="input-form" type="date">
-                <a (click)="addSlots()" class="btn btn-primary">Add slots</a>
+              <div class="row">
+                <div class="col-sm-6">Date</div>
+                <div class="col-sm-6"><input class="form-control" type="date" [(ngModel)] ="ondate"></div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">From time</div>                
+                <div class="col-sm-6"><input class="form-control" type="time" [(ngModel)] ="fromtime"></div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">To time</div>                    
+                <div class="col-sm-6"><input class="form-control" type="time" [(ngModel)] ="totime"></div>
+                <br><br>
+              </div> 
+              <div class="row justify-content-md-right"> 
+                <div class="col-sm-6">  
+                  <button (click)="addSlots()" class="btn btn-outline-primary">Add slots</button>
+                </div>  
+              </div>  
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </div><br>
     <div class="row">
-      <div class="card bg-light">
-        <div class="card-body text-center">
-          <p class="card-text">10:00 am - 10:15 am</p>
-          <p class="card-text">Booked by</p>
-          <p class="card-text">Contact number</p>
+      <span *ngFor="let patient of doctorDetail.booking">
+        <div class="card bg-light" *ngIf="patient.userId !== null">
+          <!-- <div class="card">
+              <div class="card-body"><h6>Time: {{patient.slots}} </h6><h6>Booked By: {{patient.userName}}</h6></div>
+          </div> -->
+          <div class="card-body text-center">
+            <p class="card-text"><b>Appointment at</b> {{patient.slots}}</p>
+            <p class="card-text"><b>Booked by</b> {{patient.userName}}</p>
+          </div>
         </div>
-      </div>
+      </span>  
     </div>
   </div>
   <br>
