@@ -6,14 +6,18 @@ import { LoginComponent } from './components/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpService } from './services/http.service';
 import { DoctorsViewComponent } from './doctors-view/doctors-view.component';
+import { UsersearchComponent } from './components/usersearch/usersearch.component';
+import { FormsModule } from '@angular/forms';
+import { BookappappointmentComponent } from './components/bookappappointment/bookappappointment.component';
 
 @NgModule({
-  declarations: [LoginComponent, DoctorsViewComponent],
+  declarations: [LoginComponent, DoctorsViewComponent, UsersearchComponent, BookappappointmentComponent],
   imports: [
     CommonModule,
     RootRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [
     HttpService
