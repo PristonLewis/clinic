@@ -1,1 +1,27 @@
-<p>login works!</p>
+<h1>Angular 9 Forms Example</h1>
+<form [formGroup]="loginForm" (ngSubmit)="login();">
+  <div class="form-group">
+    <label>First Name:</label>
+      <input class="form-control" formControlName="username" required>
+      <div *ngIf="loginControl.username.invalid && (loginControl.username.dirty || loginControl.username.touched)" class="alert alert-danger">
+        <div *ngIf="loginControl.username.errors.required">
+            Username is required.
+        </div>
+        <div *ngIf="loginControl.username.errors.minlength">
+            Username must be at least 4 characters long.
+        </div>
+    </div>   
+    
+    <label>Last Name:</label>
+        <input class="form-control" formControlName="password">
+        <div *ngIf="loginControl.password.invalid && (loginControl.password.dirty || loginControl.password.touched)" class="alert alert-danger">
+            <div *ngIf="loginControl.password.errors.required">
+                Password is required.
+            </div>
+            <div *ngIf="loginControl.password.errors.minlength">
+                Password must be at least 8 characters long.
+            </div>
+        </div>              
+    <button type="submit"  [disabled]="loginForm.invalid" class="btn btn-primary">Login</button>      
+  </div>
+</form>
