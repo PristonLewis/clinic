@@ -4,8 +4,9 @@ import { UsersearchComponent } from './components/usersearch/usersearch.componen
 import { BookappappointmentComponent } from './components/bookappappointment/bookappappointment.component';
 
 const routes: Routes = [
-  { path: 'bookslot', component: BookappappointmentComponent },
   { path: 'usersearch', component: UsersearchComponent },
+  { path: 'bookslot', component: BookappappointmentComponent },
+
 ];
 
 @NgModule({
