@@ -14,7 +14,7 @@
                 </div>
             </div>
 
-            <label>Last Name:</label>
+            <label>Password:</label>
                 <input class="form-control" formControlName="password" placeholder="Please enter the password">
                 <div *ngIf="loginControl.password.invalid && (loginControl.password.dirty || loginControl.password.touched)" class="alert alert-danger">
                     <div *ngIf="loginControl.password.errors.required">

@@ -18,6 +18,7 @@ export class UsersearchComponent implements OnInit {
   public doctors;
   public doctordetails;
   public bookslotdet
+  public slot;
   constructor(private httpService: HttpService, private formBuilder: FormBuilder,
     private router: Router) {
   }
@@ -58,6 +59,10 @@ export class UsersearchComponent implements OnInit {
   get f() { return this.searchform.controls; }
 
 
+  public setSlot(slot) {
+    console.log('slor', slot);
+    this.slot = slot
+  }
 
   public onSubmit(): void {
 
@@ -103,7 +108,10 @@ export class UsersearchComponent implements OnInit {
 
     console.log(this.bookform.value);
     this.submitted = true;
-    this.httpService.postRequest('/booking/userSlotBooking/', this.bookform.value).subscribe(
+    const payload = this.bookform.value;
+    payload.slot = this.slot;
+    payload.doctorId = Number(localStorage.getItem('doctorid'));
+    this.httpService.postRequest('/booking/userSlotBook/', payload).subscribe(
       (data) => {
         console.log(data);
 

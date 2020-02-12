@@ -15,6 +15,7 @@ export class BookappappointmentComponent implements OnInit {
   public errFlag;
   public doctors;
   public doctordetails;
+  public slotdate;
   constructor(private httpService: HttpService, private formBuilder: FormBuilder,
     private router: Router) {
   }
@@ -29,7 +30,10 @@ export class BookappappointmentComponent implements OnInit {
       bookslot: ['']
     });
   }
-
+  setSlot(slot) {
+    console.log('setting slot', slot)
+    this.slotdate = slot;
+  }
   get f() { return this.bookform.controls; }
 
   public onSubmit(): void {
@@ -37,7 +41,10 @@ export class BookappappointmentComponent implements OnInit {
 
     console.log(this.bookform.value);
     this.submitted = true;
-    this.httpService.getRequest('/doctors/searchdoctors/').subscribe(
+    const payload = this.bookform.value;
+    payload.slot = this.slotdate;
+    payload.doctorId = localStorage.getItem('doctorid');
+    this.httpService.postRequest('/booking/userSlotBook/', payload).subscribe(
       (data) => {
         console.log(data);
 

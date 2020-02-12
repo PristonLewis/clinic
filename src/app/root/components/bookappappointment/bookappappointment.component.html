@@ -41,8 +41,8 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let bookslot of booking">
-                            <td>{{history.slotdate}}</td>
+                        <tr *ngFor="let bookslot of booking" >
+                            <td (click)="setSlot(history.slotdate)">{{history.slotdate}}</td>
 
                         </tr>
                     </tbody>
