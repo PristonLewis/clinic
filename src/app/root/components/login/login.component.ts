@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, FormBuilder, Validators  } from '@angular/forms';
+import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { HttpService } from '../../services/http.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +10,7 @@ import { HttpService } from '../../services/http.service';
 })
 export class LoginComponent implements OnInit {
 
-  public loginForm = new FormGroup ({
+  public loginForm = new FormGroup({
     mobile: new FormControl(),
     password: new FormControl(),
   });
@@ -39,7 +40,7 @@ export class LoginComponent implements OnInit {
     console.log('loginFrom', this.loginForm.value);
     this.http.postRequest('users/login', this.loginForm.value).subscribe((data) => {
       console.log('data', data);
-      this.router.navigate(['/doctorsview'])
+      this.route.navigate(['/doctorsview'])
     }, (exception) => {
       console.log('exception', exception);
     })
