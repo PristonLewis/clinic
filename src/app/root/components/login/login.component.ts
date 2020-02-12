@@ -10,10 +10,10 @@ import { HttpService } from '../../services/http.service';
 export class LoginComponent implements OnInit {
 
   public loginForm = new FormGroup ({
-    username: new FormControl(),
+    mobile: new FormControl(),
     password: new FormControl(),
   });
-  constructor(private formBuilder: FormBuilder, private http: HttpService) { }
+  constructor(private formBuilder: FormBuilder, private http: HttpService, private route: Router) { }
 
   ngOnInit() {
     this.createForm();
@@ -25,9 +25,9 @@ export class LoginComponent implements OnInit {
   // create a reactive login form
   createForm() {
     this.loginForm = this.formBuilder.group({
-      username: ['', [
+      mobile: ['', [
         Validators.required,
-        Validators.minLength(4)]],
+        Validators.minLength(10)]],
       password: ['', [
         Validators.required,
         Validators.minLength(8)]]
@@ -37,5 +37,11 @@ export class LoginComponent implements OnInit {
   // checks whether the user is authorized
   public login(): void {
     console.log('loginFrom', this.loginForm.value);
+    this.http.postRequest('users/login', this.loginForm.value).subscribe((data) => {
+      console.log('data', data);
+      this.router.navigate(['/doctorsview'])
+    }, (exception) => {
+      console.log('exception', exception);
+    })
   }
 }
