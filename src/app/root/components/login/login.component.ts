@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
       this.route.navigate(['/doctorsview'])
     }, (exception) => {
       console.log('exception', exception);
-    })
+    });
   }
 
   public patientLogin(): void {

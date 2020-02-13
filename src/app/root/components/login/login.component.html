@@ -3,7 +3,7 @@
         <h4>Login</h4><br>
         <form [formGroup]="loginForm" (ngSubmit)="login();">
         <div class="form-group">
-            <label>Mobilenumber:</label>
+            <label>Mobile Number:</label>
             <input type="number" class="form-control" formControlName="mobile" placeholder="Please enter the mobile number" required>
             <div *ngIf="loginControl.mobile.invalid && (loginControl.mobile.dirty || loginControl.mobile.touched)" class="alert alert-danger">
                 <div *ngIf="loginControl.mobile.errors.required">
