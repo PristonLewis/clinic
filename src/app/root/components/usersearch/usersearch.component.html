@@ -91,7 +91,11 @@
 <div class="modal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     >
     <div class="modal-dialog modaldata col-md-12 col-xl-12" role="document">
+
         <div class="modal-content ">
+            <div class="modal-header">
+                <h4 class="modal-title">Book Slot</h4>
+            </div>
             <form [formGroup]="bookform" (ngSubmit)="onSubmitbookdet()">
                 <div class=" form-row p-3">
 
@@ -139,7 +143,8 @@
                                 <tr *ngFor="let bookslot of bookslotdet" (click)="setSlot(bookslot.slots)">
 
 
-                                    <td (click)="setSlot(bookslot.slots)" *ngIf="bookslot.userId === null">{{bookslot.slots}}</td>
+                                    <td (click)="setSlot(bookslot.slots)" *ngIf="bookslot.userId === null">
+                                        {{bookslot.slots}}</td>
 
 
                                 </tr>
@@ -147,8 +152,8 @@
                         </table>
                     </div>
                 </div>
-                                <div class="form-row p-3">
-                <button class="btn btn-outline-primary btn-block text-uppercase">Book</button>
+                <div class="form-row p-3">
+                    <button class="btn btn-outline-primary text-uppercase btndet">Book</button>
                 </div>
 
             </form>
