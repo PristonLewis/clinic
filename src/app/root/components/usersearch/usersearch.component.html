@@ -130,7 +130,7 @@
                                 <tr>
 
 
-                                    <th>slots</th>
+                                    <th>Available slots</th>
 
 
                                 </tr>
@@ -139,7 +139,7 @@
                                 <tr *ngFor="let bookslot of bookslotdet" (click)="setSlot(bookslot.slots)">
 
 
-                                    <td (click)="setSlot(bookslot.slots)">{{bookslot.slots}}</td>
+                                    <td (click)="setSlot(bookslot.slots)" *ngIf="bookslot.userId === null">{{bookslot.slots}}</td>
 
 
                                 </tr>
