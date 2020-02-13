@@ -39,15 +39,12 @@ export class LoginComponent implements OnInit {
   public login(): void {
     console.log('loginFrom', this.loginForm.value);
     this.http.postRequest('users/login', this.loginForm.value).subscribe((data) => {
-      console.log('data', data);
       localStorage.setItem('doctorid', data.doctorId);
-      this.route.navigate(['/doctorsview'])
-    }, (exception) => {
-      console.log('exception', exception);
+      this.route.navigate(['/doctorsview']);
     });
   }
 
   public patientLogin(): void {
-    this.route.navigate(['/usersearch'])
+    this.route.navigate(['/usersearch']);
   }
 }

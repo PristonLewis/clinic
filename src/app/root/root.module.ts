@@ -8,10 +8,9 @@ import { HttpService } from './services/http.service';
 import { DoctorsViewComponent } from './components/doctors-view/doctors-view.component';
 import { UsersearchComponent } from './components/usersearch/usersearch.component';
 import { FormsModule } from '@angular/forms';
-import { BookappappointmentComponent } from './components/bookappappointment/bookappappointment.component';
 
 @NgModule({
-  declarations: [LoginComponent, DoctorsViewComponent, UsersearchComponent, BookappappointmentComponent],
+  declarations: [LoginComponent, DoctorsViewComponent, UsersearchComponent],
   imports: [
     CommonModule,
     RootRoutingModule,

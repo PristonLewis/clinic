@@ -24,6 +24,13 @@ describe('DoctorsViewComponent', () => {
   });
 
   it('should create', () => {
+    // jasmine.createSpy('postRequest').and.callThrough();
+    component.addSlots()
     expect(component).toBeTruthy();
+  });
+
+  it('should get all doctors', () => {
+    component.ngOnInit();
+    jasmine.createSpy('postRequest').and.callThrough();
   });
 });

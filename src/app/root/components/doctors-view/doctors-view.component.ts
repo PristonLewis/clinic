@@ -16,8 +16,7 @@ export class DoctorsViewComponent implements OnInit {
   constructor(private http: HttpService) { }
 
   ngOnInit() {
-    this.http.getRequest('/doctors/bookedslots/'+ localStorage.getItem('doctorid')).subscribe((data) => {
-      console.log('data', data);
+    this.http.getRequest('/doctors/bookedslots/' + localStorage.getItem('doctorid')).subscribe((data) => {
       this.doctorDetail = data;
     });
   }
@@ -26,11 +25,11 @@ export class DoctorsViewComponent implements OnInit {
       blockDate: this.ondate,
       fromTime: this.fromtime,
       toTime: this.totime
-    }
-    this.http.postRequest('/doctors/'+ localStorage.getItem('doctorid')+ '/slotdetails', payload).subscribe((data) => {
-      swal.fire("Success");
+    };
+    this.http.postRequest('/doctors/' + localStorage.getItem('doctorid')+ '/slotdetails', payload).subscribe((data) => {
+      swal.fire('Success');
     }, (exception) => {
-      swal.fire("Fail");
+      swal.fire('Fail');
     });
   }
 
