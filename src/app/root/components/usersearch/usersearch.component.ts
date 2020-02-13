@@ -83,9 +83,10 @@ export class UsersearchComponent implements OnInit {
 
 
   }
-
+ public did;
   navigate(id) {
     console.log('doctor id', id);
+    this.did = id;
     this.httpService.getRequest('/doctors/bookedslots/' + id).subscribe(
       (data) => {
         console.log(data);
@@ -110,7 +111,8 @@ export class UsersearchComponent implements OnInit {
     this.submitted = true;
     const payload = this.bookform.value;
     payload.slot = this.slot;
-    payload.doctorId = Number(localStorage.getItem('doctorid'));
+    payload.doctorId = Number(localStorage.getItem('doctorId'));
+    payload.doctorId =this.did;
     this.httpService.postRequest('/booking/userSlotBook/', payload).subscribe(
       (data) => {
         console.log(data);
